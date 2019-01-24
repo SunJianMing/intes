@@ -1,5 +1,5 @@
 <template>
-  <div class='news'>
+  <div class='news' @touchend='toNews'>
       <div class="news-type">{{data.type}}</div>
       <div class="news-body">
         <div class="news-content">
@@ -18,7 +18,7 @@
         <span class="createTime">
           {{data.createTime}}
         </span>
-        <div class="share"></div>
+        <div class="share" @touchend='changeShareDialog'></div>
       </div>
   </div>
 </template>
@@ -27,6 +27,19 @@ export default {
   props: {
     data: {
       type: Object
+    },
+    isShareDialog: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    toNews () {
+      this.$router.push(`/newsDetails/${this.data.id}`)
+    },
+    changeShareDialog (ev) {
+      ev.stopPropagation()
+      this.$emit('update:isShareDialog', true)
     }
   }
 }

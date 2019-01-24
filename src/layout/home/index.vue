@@ -14,12 +14,14 @@
         <span class='more'></span>
       </div>
       <div class="news-wrap">
-        <v-news v-for='(news,ind) in newsData' :data='news' :key='ind'></v-news>
+        <v-news v-for='(news,ind) in newsData' :data='news' :key='ind' :isShareDialog.sync='isShareDialog'></v-news>
       </div>
       <v-dropLoad></v-dropLoad>
     </div>
     <v-footer></v-footer>
 
+    <!-- 分享 -->
+    <v-share :visible.sync='isShareDialog' @on-share-close='isShareDialog = false'></v-share>
   </div>
 </template>
 <script>
@@ -29,29 +31,35 @@ import vNews from '@/components/news'
 import vFooter from '@/components/footer'
 import vDropLoad from '@/components/drop-load'
 
+import vShare from '@/components/share'
+
 export default {
   data () {
     return {
       dataImg: [require('./img/1.png'), require('./img/1.png')],
       newsData: [{
+        id: '1',
         type: '最新消息',
         title: '肠道报告,什么样的报告才算合理的报告？',
         content: '喝口凉水胖三斤，肥胖基因了解一下！',
         createTime: '2019年1月15日',
         image: require('./img/news1.png')
       }, {
+        id: '2',
         type: '行业新闻',
         title: '肠道报告,什么样的报告才算合理的报告？',
         content: '喝口凉水胖三斤，肥胖基因了解一下！',
         createTime: '2019年1月15日',
         image: require('./img/news2.png')
       }, {
+        id: '3',
         type: '健康知识',
         title: '肠道报告,什么样的报告才算合理的报告？',
         content: '喝口凉水胖三斤，肥胖基因了解一下！',
         createTime: '2019年1月15日',
         image: require('./img/news3.png')
-      }]
+      }],
+      isShareDialog: false
     }
   },
   components: {
@@ -59,12 +67,16 @@ export default {
     vWheel,
     vNews,
     vFooter,
-    vDropLoad
+    vDropLoad,
+    vShare
   },
   methods: {
     toStatus () {
       this.$router.push('/status')
     }
+  },
+  activated () {
+    console.log(1111)
   }
 }
 </script>
@@ -79,9 +91,6 @@ export default {
       flex:1 1 auto;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-    }
-    .wheel-wrap{
-      // margin-top: .3rem;
     }
     .status-hint{
       display:flex;

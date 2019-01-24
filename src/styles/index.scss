@@ -38,9 +38,23 @@ html{
     display: inline-block;
     vertical-align: top;
   }
-  h1,h2,h3,h4,h5,h6,p,span,div,ul,li,a,i,b,s,button{
+  dl,dd,dt{
+    margin:0;
+    padding:0;
+  }
+  h1,h2,h3,h4,h5,h6,p,span,div,ul,li,a,i,b,s,button,dl,dd,dt{
     box-sizing: border-box;
     line-height: 1;
+  }
+  .layout{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .layout-wrap{
+      flex:auto;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }
 

@@ -3,7 +3,7 @@
       <router-link
         class="item"
         v-for='(item,ind) in settingData'
-        to=''
+        :to='item.path'
         tag='div'
         :key='ind'
         >
@@ -26,7 +26,7 @@ export default {
       }, {
         name: '我的收藏',
         className: 'collection',
-        path: ''
+        path: '/myInfo/collection'
       }, {
         name: '购买',
         className: 'myBuy',
@@ -38,7 +38,7 @@ export default {
       }, {
         name: '帮助中心',
         className: 'help',
-        path: ''
+        path: '/myInfo/help'
       }, {
         name: '关于我们',
         className: 'about',

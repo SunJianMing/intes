@@ -16,7 +16,7 @@ export default {
 <style lang="scss" scoped>
   .logo{
     width: 100%;
-    height: 1.26rem;
+    height: .88rem;
     text-align: center;
     background-color: #fff;
     flex-shrink:0;
@@ -29,7 +29,7 @@ export default {
     span{
       width:100%;
       height: 100%;
-      line-height: 1.26rem;
+      line-height: .88rem;
       font-size: .36rem;
       color:#5A6DE6;
       font-weight: 600;

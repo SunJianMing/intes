@@ -1,8 +1,8 @@
 <template lang="">
-  <div class='item'>
+  <div class='item' >
     <h3>{{data.title}}</h3>
     <p>{{data.text}}</p>
-    <button type='button'>查看报告</button>
+    <button type='button' @touchend='toReportDetails'>查看报告</button>
   </div>
 </template>
 <script>
@@ -10,6 +10,17 @@ export default {
   props: {
     data: {
       type: Object
+    }
+  },
+  methods: {
+    toReportDetails () {
+      let {id} = this.data
+      if (id === 1 || id === '1') {
+        this.$router.push(`/intesReport/${id}`)
+      }
+      if (id === 2 || id === '2') {
+        this.$router.push(`/uricReport/${id}`)
+      }
     }
   }
 }

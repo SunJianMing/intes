@@ -1,5 +1,6 @@
 import Home from './home'
-
+import Report from './report'
+import my from './my'
 const dynamicRouters = [
   {
     path: '/',
@@ -12,8 +13,13 @@ const dynamicRouters = [
     component: () => import('@/layout/buy')
   }, {
     path: '/my',
-    component: () => import('@/layout/my')
+    component: () => import('@/layout/my'),
+    meta: {
+      title: ''
+    }
   },
-  ...Home
+  ...Home,
+  ...Report,
+  ...my
 ]
 export default dynamicRouters
