@@ -4,7 +4,7 @@
     <div class="title">我的关注</div>
     <div class="focus-item">
         <router-link
-          to='/'
+          :to='menu.path'
           tag='div'
           v-for='(menu,ind) in menus'
           :key='ind'
@@ -24,7 +24,7 @@ export default {
       menus: [{
         name: '个人样本',
         className: 'sample',
-        path: ''
+        path: '/status'
       }, {
         name: '添加数据',
         className: 'addData',
@@ -32,7 +32,7 @@ export default {
       }, {
         name: '示例报告',
         className: 'sample-report',
-        path: ''
+        path: '/report'
       }, {
         name: '我的报告',
         className: 'my-report',

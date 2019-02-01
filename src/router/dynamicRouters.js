@@ -13,10 +13,7 @@ const dynamicRouters = [
     component: () => import('@/layout/buy')
   }, {
     path: '/my',
-    component: () => import('@/layout/my'),
-    meta: {
-      title: ''
-    }
+    component: () => import('@/layout/my')
   },
   ...Home,
   ...Report,

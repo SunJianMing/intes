@@ -46,7 +46,7 @@ export default {
       }, {
         name: '设置',
         className: 'setting',
-        path: ''
+        path: '/myInfo/setting'
       }]
     }
   }
